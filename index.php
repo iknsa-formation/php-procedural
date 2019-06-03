@@ -27,49 +27,18 @@
             </ul>
         </div>
     </header>
-<div class="jumbotron">
-    	<div class="alert alert-primary" role="alert">
-    		<h2>Liste des admis</h2>
-    	</div>
-	        <?php
-		        $personnes = array(
-		            1 => array('prenom' => 'Moussa', 'nom' => 'Camara', 'moyenne' => 12),
-		            3 => array('prenom' => 'Moustakime', 'nom' => 'Kifia', 'moyenne' => 10)
-		        );
-		        foreach($personnes as $key1 => $value)
-		        {
-		          if ($value['moyenne'] > 9) {
-		          		//echo "personne n°:" . $key1 . "<br />";
-		         
-		            foreach ($value as $key2=>$value2)
-		            {
-		            		echo $key2 .": <strong>" . $value2 . "</strong><br />\n";
-		            }
-		           }
-		        }
-	    	?>
-	</div>
 
 	<div class="jumbotron">
-    	<div class="alert alert-primary" role="alert">
-    		<h2>Liste des non-admis</h2>
-    	</div>
-	       <?php
-		        $personnes = array(
-		            2 => array('prenom' => 'Khalid', 'nom' => 'Sookia', 'moyenne' => 8),
-		        );
-		        foreach($personnes as $key1 => $value)
-		        {
-		          if ($value['moyenne'] <= 9) {
-		          //echo "personne n°:" . $key1 . "<br />";
-		         
-		            foreach ($value as $key2=>$value2)
-		            {
-		            		echo $key2 .": <strong>" . $value2 . "</strong><br />\n";
-		            }
-		           }
-		        }
-	    	?>
+	    <?php
+           //include 'index.html';
+           include 'include.php';
+           //require 'require.php';
+           // Chargement du fichier une et une seule fois
+           include_once 'include.php';
+           //include_once 'include.php';
+           /* Require */
+          require_once 'require.php';
+        ?>
 	</div>
 
  	<footer>
