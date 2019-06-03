@@ -40,52 +40,70 @@
             </ul>
         </div>
     </header>
-     <main>
-       
-        <?php
-           // if (isset($_POST['firstname']) &&  isset($_POST['lastname']) &&  isset($_POST['adresse']) &&  isset($_POST['fonction'])){
-           /* if (count($_POST) >0){
-                $prenom = $_POST['firstname'];
-                $nom = $_POST['lastname'];
-                $adresse = $_POST['adresse'];
-                $fonction = $_POST['fonction'];
-                echo "Prénom: " .$prenom . "<br>";
-                echo "Nom: " .$nom . "<br>";
-                echo "Adresse: " .$adresse. "<br>";
-                echo "Fonction: " .$fonction. "<br>";
-            }*/
-            /* INSERT INTO BDD */
-             if (count($_POST) >0){
-                $prenom = $_POST['firstname'];
-                $nom = $_POST['lastname'];
-                $adresse = $_POST['adresse'];
-                $fonction = $_POST['fonction'];
-                echo "Prénom: " .$prenom . "<br>";
-                echo "Nom: " .$nom . "<br>";
-                echo "Adresse: " .$adresse. "<br>";
-                echo "Fonction: " .$fonction. "<br>";
-                /*
-                * Instertion dans la base de donnée
-                */
-                
-                $sql = "INSERT INTO users(firstname,lastname,adresse,fonction) VALUES('".$prenom."','".$nom."','".$adresse."','".$fonction."')";
-                
-                
-                $insert = mysqli_query ($connection,$sql);
-                if ($insert) {
-                    echo "<div class='alert alert-success' role='alert'>
-                          L'utilisateur $prenom $nom a été ajouté en base!
-                        </div>" ;
-                } else {
-                    echo "<div class='alert alert-danger' role='alert'>
-                          Oups! Insertion échoué
-                        </div>";
-                }
-                mysqli_close($connection);
-            }
-            /* FIN INSERT */
+     <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Adresse</th>
+          <th scope="col">Fonction</th>
+          <th scope="col">Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+       <?php
+            $sql = "SELECT * FROM USERS";
+            $resultat = mysqli_query ($connection,$sql);
+            /*
+            * mysqli_fetch_row()result->fetch_row() Récupère une ligne de résultat sous forme de tableau indexé
+            */
+            //while ($row = mysqli_fetch_row($resultat)) {
+            /*
+            * mysqli_fetch_assoc()mysqli->fetch_assoc() Récupère une ligne de résultat sous forme de tableau associatif
+            */
+            while ($row = mysqli_fetch_assoc($resultat)) {
         ?>
-    </main>
+          <th>
+            <?php 
+                //echo $row[0]; 
+                echo $row['id']; 
+          ?>
+          </th>
+          <td>
+            <?php 
+                //echo $row[0]; 
+                echo $row['firstname']; 
+            ?>
+            </td>
+          <td>
+            <?php 
+                //echo $row[2]; 
+                echo $row['lastname']; 
+            ?>
+            </td>
+          <td>
+            <?php 
+                //echo $row[3]}; 
+                echo $row['adresse']; 
+            ?>
+            </td>
+          <td>
+            <?php 
+                //echo $row[3]}; 
+                echo $row['fonction']; 
+            ?>
+            </td>
+            <td>
+            <a href="edit.php?id=<?php echo $row['id'] ?>">Modifier</a>
+            </td>
+        </tr>
+        <?php 
+            }
+                mysqli_free_result($resultat);
+            ?>
+      </tbody>
+    </table>
     <footer>
         copyright @iknsa.com
     </footer>
