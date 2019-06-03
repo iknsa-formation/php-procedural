@@ -31,33 +31,27 @@
      <div class="jumbotron">
 
         <?php
+        	echo "Les apports de PHP 7 <br>";
+        	echo 1 <=> 1; // 0
+        	//echo "a" <=> "a"; // 0
+        	echo "<br> Les operations 1 <=> 2 <br>";
+			echo 1 <=> 2; // -1
+			//echo "a" <=> "b"; // -1
+        	echo "<br> Les operations 2 <=> 1 <br>";
+			echo 2 <=> 1; // 1
+			//echo "b" <=> "a"; // 1
 
-            function direBonjour(){
-                echo "Bonjour tout le monde !";
-            }
-            direBonjour();
+			echo "Les tableaux <br>";
+			echo [] <=> []; // 0
+			echo [1, 2, 3] <=> [1, 2, 3]; // 0
+			echo [1, 2, 3] <=> []; // 1
+			echo [1, 2, 3] <=> [1, 2, 1]; // 1
+			echo [1, 2, 3] <=> [1, 2, 4]; // -1
 
-            /**
-            * TP sur  les operations
-            */
-
-            /*function addition($nombre1, $nombre2){
-                $resultat=$nombre1 + $nombre2;
-                return $resultat;
-            }
-           echo addition(15,1);*/
-
-           /*function division($nombre1, $nombre2){
-                $resultat=$nombre1 / $nombre2;
-                return $resultat;
-            }
-           echo division(15,3);*/
-
-        
 	    ?>
      </div>
 
- <footer>
+ 	<footer>
         copyright @iknsa.com
     </footer>
   </body>
