@@ -27,29 +27,50 @@
             </ul>
         </div>
     </header>
+<div class="jumbotron">
+    	<div class="alert alert-primary" role="alert">
+    		<h2>Liste des admis</h2>
+    	</div>
+	        <?php
+		        $personnes = array(
+		            1 => array('prenom' => 'Moussa', 'nom' => 'Camara', 'moyenne' => 12),
+		            3 => array('prenom' => 'Moustakime', 'nom' => 'Kifia', 'moyenne' => 10)
+		        );
+		        foreach($personnes as $key1 => $value)
+		        {
+		          if ($value['moyenne'] > 9) {
+		          		//echo "personne n°:" . $key1 . "<br />";
+		         
+		            foreach ($value as $key2=>$value2)
+		            {
+		            		echo $key2 .": <strong>" . $value2 . "</strong><br />\n";
+		            }
+		           }
+		        }
+	    	?>
+	</div>
 
-     <div class="jumbotron">
-
-        <?php
-        	echo "Les apports de PHP 7 <br>";
-        	echo 1 <=> 1; // 0
-        	//echo "a" <=> "a"; // 0
-        	echo "<br> Les operations 1 <=> 2 <br>";
-			echo 1 <=> 2; // -1
-			//echo "a" <=> "b"; // -1
-        	echo "<br> Les operations 2 <=> 1 <br>";
-			echo 2 <=> 1; // 1
-			//echo "b" <=> "a"; // 1
-
-			echo "Les tableaux <br>";
-			echo [] <=> []; // 0
-			echo [1, 2, 3] <=> [1, 2, 3]; // 0
-			echo [1, 2, 3] <=> []; // 1
-			echo [1, 2, 3] <=> [1, 2, 1]; // 1
-			echo [1, 2, 3] <=> [1, 2, 4]; // -1
-
-	    ?>
-     </div>
+	<div class="jumbotron">
+    	<div class="alert alert-primary" role="alert">
+    		<h2>Liste des non-admis</h2>
+    	</div>
+	       <?php
+		        $personnes = array(
+		            2 => array('prenom' => 'Khalid', 'nom' => 'Sookia', 'moyenne' => 8),
+		        );
+		        foreach($personnes as $key1 => $value)
+		        {
+		          if ($value['moyenne'] <= 9) {
+		          //echo "personne n°:" . $key1 . "<br />";
+		         
+		            foreach ($value as $key2=>$value2)
+		            {
+		            		echo $key2 .": <strong>" . $value2 . "</strong><br />\n";
+		            }
+		           }
+		        }
+	    	?>
+	</div>
 
  	<footer>
         copyright @iknsa.com
