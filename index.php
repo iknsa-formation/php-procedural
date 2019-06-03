@@ -1,22 +1,13 @@
 <?php
     require_once 'db.php';
-
-    /*CREATE TABLE IF NOT EXISTS `users` (
-	  `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-	  `firstname` VARCHAR(100) UNIQUE NOT NULL DEFAULT '',
-	  `lastname` VARCHAR(100) UNIQUE NOT NULL DEFAULT '',
-	  `adresse` VARCHAR(100) UNIQUE NOT NULL DEFAULT '',
-	  `fonction` VARCHAR(100) UNIQUE NOT NULL DEFAULT '',
-	  PRIMARY KEY (`id`)
-	)ENGINE = InnoDB;*/
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <title>PHP Course - IKNSA</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
   </head>
@@ -40,6 +31,7 @@
             </ul>
         </div>
     </header>
+
      <table class="table">
       <thead>
         <tr>
@@ -52,50 +44,39 @@
         </tr>
       </thead>
       <tbody>
-       <?php
-            $sql = "SELECT * FROM USERS";
-            $resultat = mysqli_query ($connection,$sql);
-            /*
-            * mysqli_fetch_row()result->fetch_row() Récupère une ligne de résultat sous forme de tableau indexé
-            */
-            //while ($row = mysqli_fetch_row($resultat)) {
-            /*
-            * mysqli_fetch_assoc()mysqli->fetch_assoc() Récupère une ligne de résultat sous forme de tableau associatif
-            */
-            while ($row = mysqli_fetch_assoc($resultat)) {
-        ?>
+        <tr>
+            <?php
+                $sql = "SELECT * FROM USERS";
+                $resultat = mysqli_query ($connection,$sql);
+                while ($row = mysqli_fetch_assoc($resultat)) {
+            ?>
           <th>
             <?php 
-                //echo $row[0]; 
                 echo $row['id']; 
           ?>
           </th>
           <td>
             <?php 
-                //echo $row[0]; 
                 echo $row['firstname']; 
             ?>
             </td>
           <td>
             <?php 
-                //echo $row[2]; 
                 echo $row['lastname']; 
             ?>
             </td>
           <td>
             <?php 
-                //echo $row[3]}; 
                 echo $row['adresse']; 
             ?>
             </td>
           <td>
             <?php 
-                //echo $row[3]}; 
                 echo $row['fonction']; 
             ?>
             </td>
             <td>
-            <a href="edit.php?id=<?php echo $row['id'] ?>">Modifier</a>
+            <a href="edit.php?id=<?php echo $row['id'] ?>"><img src="img/edit.png"></a>
             </td>
         </tr>
         <?php 
@@ -104,7 +85,8 @@
             ?>
       </tbody>
     </table>
-    <footer>
+
+ <footer>
         copyright @iknsa.com
     </footer>
   </body>
