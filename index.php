@@ -1,5 +1,15 @@
 <?php
     require_once 'db.php';
+
+    /*CREATE TABLE IF NOT EXISTS `users` (
+	  `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+	  `firstname` VARCHAR(100) UNIQUE NOT NULL DEFAULT '',
+	  `lastname` VARCHAR(100) UNIQUE NOT NULL DEFAULT '',
+	  `adresse` VARCHAR(100) UNIQUE NOT NULL DEFAULT '',
+	  `fonction` VARCHAR(100) UNIQUE NOT NULL DEFAULT '',
+	  PRIMARY KEY (`id`)
+	)ENGINE = InnoDB;*/
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
